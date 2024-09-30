@@ -132,20 +132,23 @@ function Navigation({ userName, email }) {
                     text: t('utilities.documentation'),
                     href: "https://github.com/aws-samples/amazon-transcribe-post-call-analytics/",
                     external: true,
-                    externalIconAriaLabel: " (opens in a new tab)"
+                    externalIconAriaLabel: 
+                      " (opens in new tab)"
                   },
                   {
                     id: "feedback",
                     text: t('utilities.feedback'),
                     href: "https://amazon.com/post-call-analytics",
                     external: true,
-                    externalIconAriaLabel: " (opens in a new tab)"
+                    externalIconAriaLabel: 
+                      " (opens in new tab)"
                   }
                 ]
               },
               { id: "signout", text: t('utilities.signout') }
             ]
-          },
+          }
+          
         ]}
       />
   );
