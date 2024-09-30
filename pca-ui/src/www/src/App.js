@@ -120,6 +120,9 @@ function Navigation({ userName, email }) {
               if (event.detail.id === "signout") logOut();
             },
             items: [
+              /* { id: "profile", text: "Profile" },
+              { id: "preferences", text: "Preferences" },
+              { id: "security", text: "Security" },*/
               {
                 id: "support-group",
                 text: t('utilities.support'),
