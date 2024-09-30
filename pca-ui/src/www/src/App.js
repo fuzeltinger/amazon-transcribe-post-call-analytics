@@ -65,10 +65,11 @@ const routes = [
     name: "Call List",
     Component: Home,
     Breadcrumb: () => {
+      const { t } = useTranslation();
       return <BreadcrumbGroup
         items={[
-          { text: "Home", href: "#" },
-          { text: "Call List", href: "#" },
+          { text: t("home.title"), href: "#" },
+          { text: t("callList"), href: "#" },
         ]}
         ariaLabel="Breadcrumbs"
       />
@@ -77,17 +78,9 @@ const routes = [
 ];
 
 function Navigation({ userName, email }) {
-  const { t, i18n } = useTranslation();
-  const [language, setLanguage] = useState(i18n.language);
-
-  const handleLanguageChange = (lang) => {
-    i18n.changeLanguage(lang);
-    setLanguage(lang);
-    localStorage.setItem('language', lang);
-  };
+  const { t } = useTranslation();
 
   return (
-    <div>
       <TopNavigation
         identity={{
           href: "/",
@@ -150,32 +143,8 @@ function Navigation({ userName, email }) {
               { id: "signout", text: t('utilities.signout') }
             ]
           },
-          {
-            type: "menu-dropdown",
-            text: language === 'en' ? 'EN' : 'ES',
-            onItemClick: (event) => {
-              handleLanguageChange(event.detail.id);
-            },
-            items: [
-              {
-                id: "language-group",
-                text: t('utilities.language'),
-                items: [
-                  {
-                    id: "en",
-                    text: t('utilities.language_en'),
-                  },
-                  {
-                    id: "es",
-                    text: t('utilities.language_es'),
-                  }
-                ]
-              },
-            ]
-          }
         ]}
       />
-    </div>
   );
 }
 
